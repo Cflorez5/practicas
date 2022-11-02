@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    width: 100%;
+    max-width: 1366;
+    outline: 2px dashed purple;
+    margin: auto;
+}
+
+/* Reglas Generales */
+
+img{
+    width: 10%;
+    height: 10%;
+    border-radius: 500px;
+    display: flex;
+}
+
+label{
+    font-family: 'Poppins', sans-serif;
+    width: 80%;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 50px;
+    display: block;
+}
+
+input{
+    font-family: 'Poppins', sans-serif;
+    width: 80%;
+    height: 30px;
+    margin-left: 50px;
+    padding-left: 10px;
+}
+
+button{
+    font-family: 'Poppins', sans-serif;
+    width: 20%;
+    height: 40px;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-left: 50px;
+    background-color:#CCB33B;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Reglas Específicas */
+
+.imagen{
+    margin-top: 50px;
+}
+
+.contenedor{
+    width: 700px;
+    margin-top: 50px;
+}
+

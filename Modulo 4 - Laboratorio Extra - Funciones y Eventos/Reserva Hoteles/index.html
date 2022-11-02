@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modulo 4: Laboratorio extra - Hoteles</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="marco">
+      <div class="log-menu">
+        <img src="img/Booking-logo.png" alt="logo">
+      </div>
+    
+        <div class="background">
+          <h2>Encuentra tu próxima estancia</h2>
+          <p>Busca ofertas en hoteles, casas y mucho más...</p>
+        </div>
+
+        <div class="box">
+          <h3>Eliga el tipo de habitación</h3>
+          <select name="tip_room" id="tip_room">
+            <option value="standard">Standard</option>
+            <option value="junior">Junior Suite</option>
+            <option value="suite">Suite</option>
+          </select>
+          <select name="tp_room" id="tp_room">
+            <option value="individual">individual</option>
+            <option value="doble">doble</option>
+            <option value="triple">triple</option>
+          </select>
+          <label for="spa" id="nights">Nº de Noches </label>
+          <input type="number" name="n_nights" id="n_nights">
+          <button type="submit" id="button-rest">Enviar</button>
+        </div>
+        <h3>¿Desea algún otro servicio?</h3>
+        <div class="box_services">
+        <label for="spa">Hacer uso del SPA</label>
+        <input type="checkbox" name="spa" id="spa">
+        <label for="spa">Noches de parking </label>
+        <input type="number" name="n_parking" id="n_parking">
+        </div>
+        <div class="result">
+          <p id="precio final">precio final</p>
+          <div class="box-result">
+            <h3 class="text-result" id="text-result"></h3>
+          </div>
+        </div>
+
+        <footer>
+          <h4>Booking.com forma parte de Booking Holdings Inc., líder mundial en viajes online y servicios relacionados</h4>
+          <div class="logos">
+            <img src="img/logo1.png" alt="logo1">
+            <img src="img/logo2.png" alt="logo2">
+            <img src="img/logo3.png" alt="logo3">
+            <img src="img/logo4.png" alt="logo4">
+          </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/*Normalizadores*/
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    /* outline: 2px dashed purple; */
+}
+
+
+/*Reglas Generales*/
+.marco{
+    width: 100%;
+    max-width: 1366px;
+    margin: auto;
+    padding: 30px;
+}
+
+h2{
+    font-size: 25px;
+    text-align: center;
+    color: rgb(54, 54, 54);
+}
+
+button{
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    background-color: rgb(246, 246, 246);
+    color: rgb(54, 54, 54);
+    margin: 0px 20px;
+    border: 1px solid gray;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+input{
+    height: 50px;
+    width: 500px;
+    padding: 15px;
+    border-radius: 3px;
+    background-color: rgb(246, 246, 246);
+    color: rgb(54, 54, 54);
+    border: 1px solid rgb(192, 192, 192);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+p{
+    text-align: center;
+    margin: auto;
+    color: rgb(54, 54, 54);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+span{
+    font-size: 16px;
+    padding: 5px;
+}
+
+#button-igual{
+    background-color: rgb(189, 189, 189);
+    color: rgb(54, 54, 54);
+}
+
+.box{
+    margin: 30px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.box-result{
+    height: 30px;
+    width: 300px;
+    margin: auto;
+    padding: 5px;
+    color: rgb(54, 54, 54);
+    background-color: rgb(246, 246, 246);
+    border-radius: 3px;
+    border: 1px solid rgb(192, 192, 192);
+}
+
+.botonera{
+    display: flex;
+    justify-content: center;
+    margin: 35px;
+}
+
+.result{
+    width: 45%;
+    display: flex;
+    margin: auto;
+}
+

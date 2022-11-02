@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/*Normalizadores*/
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    /* outline: 2px dashed purple; */
+}
+
+
+/*Reglas Generales*/
+.marco{
+    height: 550px;
+    width: 100%;
+    max-width: 1920px;
+    margin: auto;
+    padding: 30px;
+    background-color: #003580;
+}
+
+
+h2{
+    font-size: 48px;
+    text-align: center;
+    color: white;
+    margin: 10px 0px;
+}
+
+h3{
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    margin: 10px 10px;
+    font-weight: 300;
+}
+
+h4{
+    font-size: 14px;
+    color: #6B6B6B;
+    margin: 30px 0px;
+    font-weight: 300;
+}
+
+p{
+    font-size: 24px;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+button{
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3AADDC;
+    color: white;
+    margin: 0px 25px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #00132e;
+    color: white;
+}
+
+select{
+    width: 200px;
+    border-radius: 5px;
+    margin: 0px 10px;
+    padding: 5px;
+}
+
+input{
+    width: 60px;
+    padding: 8px;
+    border-radius: 3px;
+    background-color: rgb(246, 246, 246);
+    color: rgb(54, 54, 54);
+    border: 1px solid rgb(192, 192, 192);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+label{
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    margin: 10px 10px;
+    font-weight: 200;
+}
+
+span{
+    font-size: 16px;
+    padding: 5px;
+}
+
+img{
+    margin: 10px 15px;
+    height: 35px;
+}
+
+footer{
+    text-align: center;
+    padding-top: 280px;
+}
+
+
+#button-igual{
+    background-color: rgb(189, 189, 189);
+    color: rgb(54, 54, 54);
+}
+
+.log-menu{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+
+.box{
+    height: 38px;
+    margin: 40px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.box_services{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.box_services #spa{
+    height: 18px;
+}
+
+.result{
+    height: 70px;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.box-result {
+    height: 30px;
+    width: 150px;
+    color: rgb(54, 54, 54);
+    background-color: rgb(246, 246, 246);
+    border-radius: 3px;
+    border: 1px solid rgb(192, 192, 192);
+    margin-left: 20px;
+}
+
+.text-result{
+    color:rgb(54, 54, 54) !important;
+    margin: 3px;
+}

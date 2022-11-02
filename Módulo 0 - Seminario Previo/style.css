@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto&display=swap');
+
+/* *{
+    outline: 2px dashed purple;
+} */
+
+
+/*Reglas Generales*/
+.marco{
+    width: 100%;
+    max-width: 1366;
+    margin: auto;
+}
+
+h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: -3px;
+}
+
+h3{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+p{
+    width: 25%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    margin: 0px 50px;
+    text-align: start;
+}
+
+a{
+    font-size: 25px;
+    display: flex;
+    cursor:pointer;
+    color: black;
+}
+
+a:hover{
+    color: blue;
+}
+
+
+/*Reglas Específicas*/
+
+/*Sección 1*/
+.s1{
+    height: 80px;
+    padding: 10px 20px;
+    border: 1px solid #C4C4C4;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.phone{
+    width: 15%;
+    margin: 0px 30px;
+    cursor:pointer;
+}
+
+.icons{
+    font-size: 14px;
+    color: black;
+}
+
+.span{
+    display: inline-block;
+}
