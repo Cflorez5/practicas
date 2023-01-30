@@ -23,8 +23,8 @@ const reservas = [
 ];
 
 class clasePadre {
-  constructor() {
-    this._reservas = [];
+  constructor(reservas) {
+    this._reservas = reservas;
     this._subtotal = 0;
     this._total = 0;
     this.iva = 1.21;
@@ -36,39 +36,31 @@ class clasePadre {
   }
 
   calcularSubtotal() {
-    this._subtotal = reservas.reduce(
+    return reservas.reduce(
       (acc, { tipoHabitacion, pax, noches }) =>
         acc +
         this.calcularPrecioHab(tipoHabitacion) * noches +
-        this.paxAdicional(pax) - this.descuento,
+        this.paxAdicional(pax) -
+        this.descuento,
       0
     );
   }
 
   calcularTotal() {
-    this._total = this._subtotal * this.iva;
+    return this.calcularSubtotal() * this.iva;
   }
 
   //get
   get subTotal() {
-    return this._subtotal.toFixed(0);
+    return this.calcularSubtotal().toFixed(2);
   }
 
   get total() {
-    return this._total.toFixed(0);
+    return this.calcularTotal().toFixed(0);
   }
+}
 
-  //set
-  set reservas(reservas) {
-    this._reservas = reservas;
-    this.calcularSubtotal();
-    this.calcularTotal();
-  }
-
- }
-
-
- class clienteParticular extends clasePadre {
+class clienteParticular extends clasePadre {
   constructor() {
     super();
   }
@@ -80,14 +72,11 @@ class clasePadre {
       return 150;
     }
   }
+}
 
- }
-
- const ReservaCliente = new clienteParticular();
- ReservaCliente.reservas = reservas;
- console.log("La reserva del desafío del cliente es " + ReservaCliente.subTotal)
- console.log("La reserva del desafío del cliente es " + ReservaCliente.total)
-
+const ReservaCliente = new clienteParticular(reservas);
+console.log("La reserva del desafío del cliente es " + ReservaCliente.subTotal);
+console.log("La reserva del desafío del cliente es " + ReservaCliente.total);
 
 class clienteOperador extends clasePadre {
   constructor() {
@@ -96,13 +85,12 @@ class clienteOperador extends clasePadre {
   }
 
   calcularPrecioHab() {
-      return 100;
-    }
+    return 100;
   }
+}
 
-const ReservaOperador = new clienteOperador();
-ReservaOperador.reservas = reservas;
-console.log("La reserva del desafío del operador es " + ReservaOperador.subTotal)
-console.log("La reserva del desafío del operador es " + ReservaOperador.total)
-
-
+const ReservaOperador = new clienteOperador(reservas);
+console.log(
+  "La reserva del desafío del operador es " + ReservaOperador.subTotal
+);
+console.log("La reserva del desafío del operador es " + ReservaOperador.total);
