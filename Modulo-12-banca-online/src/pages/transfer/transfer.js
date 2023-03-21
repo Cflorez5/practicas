@@ -3,6 +3,7 @@ import {
   onSubmitForm,
   onSetFormErrors,
   onUpdateField,
+  onSetError,
 } from '../../common/helpers';
 import { setAccountOptions } from './transfer.helpers';
 import { formValidation } from './transfer.validations';

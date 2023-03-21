@@ -22,9 +22,11 @@ export const inputYear = (value) => {
   };
 };
 
+const regexEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
 export const inputEmail = (value) => {
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(value)) {
-    alert('La dirección de email ' + value + ' es correcta.');
+  if (regexEmail.test(value)) {
+    alert('La dirección de email ' + value + ' es correcta');
   } else {
     alert('La dirección de email es incorrecta');
   }

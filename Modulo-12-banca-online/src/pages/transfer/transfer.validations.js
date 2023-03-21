@@ -1,4 +1,5 @@
-import { createFormValidation, Validators } from '@lemoncode/fonk';
+import { Validators, createFormValidation } from '@lemoncode/fonk';
+import { iban } from '@lemoncode/fonk-iban-validator';
 import { inputDay, inputMonth, inputYear, inputEmail } from './transfer.custom';
 
 const validationSchema = {
@@ -6,12 +7,9 @@ const validationSchema = {
     iban: [
       {
         validator: Validators.required,
-        message: 'campo requerido',
-      },
-      {
-        validator: iban.validator,
-        customArgs: { countryCode: 'ES' },
-        message: 'IBAN no válido',
+        message: iban.setErrorMessage(
+          'El campo debe tener un formato IBAN válido'
+        ),
       },
     ],
     name: [
@@ -34,7 +32,7 @@ const validationSchema = {
     ],
     notes: [
       {
-        validator: Validators.notes,
+        validator: Validators.required,
         message: 'rellene el campo con caracteres válidos',
       },
     ],

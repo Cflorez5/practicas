@@ -5,7 +5,7 @@ const urlTransfer = `${process.env.BASE_API_URL}/transfer`;
 const urlData = `${process.env.BASE_API_URL}/account-list`;
 
 export const getAccountList = (id) =>
-  Axios.get(`${urlData}/${id}`).then((response) => {
+  Axios.get(urlData, { params: { id: id } }).then((response) => {
     return response.data;
   });
 
