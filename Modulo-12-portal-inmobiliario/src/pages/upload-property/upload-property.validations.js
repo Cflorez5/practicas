@@ -21,6 +21,10 @@ const validationSchema = {
         validator: Validators.required,
         message: 'campo requerido',
       },
+      {
+        validator: Validators.email,
+        message: 'Email no válido',
+      },
     ],
     phone: [
       {
@@ -46,6 +50,7 @@ const validationSchema = {
     saleTypeIds: [
       {
         validator: arrayRequired.validator,
+        customArgs: { minLength: 1 },
         message: 'campo requerido',
       },
     ],
@@ -61,7 +66,7 @@ const validationSchema = {
         message: 'campo requerido',
       },
     ],
-    provinceId: [
+    province: [
       {
         validator: Validators.required,
         message: 'campo requerido',
@@ -73,7 +78,7 @@ const validationSchema = {
         message: 'campo requerido',
       },
       {
-        validator: positiveNumber.required,
+        validator: positiveNumber.validator,
         message: 'Introduce un número correcto',
       },
     ],
@@ -91,23 +96,12 @@ const validationSchema = {
     ],
     locationUrl: [
       {
-        validator: Validators.required,
-        message: 'campo requerido',
-      },
-      {
         validator: Validators.pattern,
         customArgs: { pattern: /^https:\/\/www\.google\.com\/maps\/embed?/ },
         message: 'URL no válida',
       },
     ],
     mainFeatures: [
-      {
-        validator: arrayRequired.validator,
-        customArgs: { minLength: 1 },
-        message: 'campo requerido',
-      },
-    ],
-    equipmentIds: [
       {
         validator: arrayRequired.validator,
         customArgs: { minLength: 1 },

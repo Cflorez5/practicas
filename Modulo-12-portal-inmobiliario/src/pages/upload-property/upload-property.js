@@ -12,6 +12,7 @@ import {
   onSetError,
   onSubmitForm,
   onSetFormErrors,
+  onAddFile,
 } from '../../common/helpers/element.helpers';
 
 import {
@@ -30,25 +31,82 @@ let newProperty = {
   email: '',
   phone: '',
   price: '',
-  saleTypeIds: [],
+  saleTypes: [],
   address: '',
   city: '',
-  provinceId: '',
+  province: '',
   squareMeter: '',
   rooms: '',
   bathrooms: '',
   locationUrl: '',
   mainFeatures: [],
-  equipmentIds: [],
+  equipments: [],
   images: [],
-  newFeature: [],
+};
+
+//Añadir y quitar elementos checkbox
+const addElementCheckbox = (value) => {
+  newProperty = {
+    ...newProperty,
+    saleTypes: [...newProperty.saleTypes, value],
+  };
+};
+
+const removeElementCheckbox = (value) => {
+  const index = newProperty.saleTypes.indexOf(value);
+  newProperty.saleTypes.splice(index, 1);
+};
+
+const setEventsCheckbox = (checkboxList) => {
+  checkboxList.forEach((element) => {
+    const elementId = formatCheckboxId(element);
+    onUpdateField(elementId, (event) => {
+      const value = event.target.value;
+
+      if (event.target.checked) {
+        addElementCheckbox(value);
+      } else {
+        removeElementCheckbox(value);
+      }
+    });
+  });
+};
+
+//equipments
+const addElementEquipments = (value) => {
+  newProperty = {
+    ...newProperty,
+    equipments: [...newProperty.equipments, value],
+  };
+};
+
+const removeElementEquipments = (value) => {
+  const index = newProperty.equipments.indexOf(value);
+  newProperty.equipments.splice(index, 1);
+};
+
+const setEventsEquipments = (equipmentsList) => {
+  equipmentsList.forEach((element) => {
+    const elementId = formatCheckboxId(element);
+    onUpdateField(elementId, (event) => {
+      const value = event.target.value;
+
+      if (event.target.checked) {
+        addElementEquipments(value);
+      } else {
+        removeElementEquipments(value);
+      }
+    });
+  });
 };
 
 //Ejecutar con promise.all
 Promise.all([getSaleTypesList(), getProvincesList(), getEquipmentsList()]).then(
   ([saleTypesList, provincesList, equipmentsList]) => {
     setCheckboxList(saleTypesList, 'saleTypes');
+    setEventsCheckbox(saleTypesList);
     setCheckboxList(equipmentsList, 'equipments');
+    setEventsEquipments(equipmentsList);
     setOptionList(provincesList, 'province');
   }
 );
@@ -114,13 +172,6 @@ onUpdateField('price', (event) => {
   });
 });
 
-// onUpdateField("") => No a salesType sino a cada checkbox. Ej. HTLM tiene input 2-comprar
-// saleTypeIds;
-// Bucle que recorra array y coger las ID de cada elemento
-// formatCheckboxId
-// cuando tengamos la ID formateada onUpDateField
-//Añadir elemento y eliminar elemento
-
 onUpdateField('address', (event) => {
   const value = event.target.value;
   newProperty = {
@@ -147,17 +198,17 @@ onUpdateField('city', (event) => {
   });
 });
 
-onUpdateField('provinceId', (event) => {
+onUpdateField('province', (event) => {
   const value = event.target.value;
   newProperty = {
     ...newProperty,
-    provinceId: value,
+    province: value,
   };
 
   formValidation
-    .validateField('provinceId', newProperty.provinceId)
+    .validateField('province', newProperty.province)
     .then((result) => {
-      onSetError('provinceId', result);
+      onSetError('province', result);
     });
 });
 
@@ -223,25 +274,57 @@ onSubmitForm('insert-feature-button', () => {
       ...newProperty,
       mainFeatures: [...newProperty.mainFeatures, value],
     };
-
-    formatDeleteFeatureButtonId(value);
     onAddFeature(value);
+
+    const formartId = formatDeleteFeatureButtonId(value);
+    onSubmitForm(formartId, () => {
+      //eliminar del HTML
+      onRemoveFeature(value);
+
+      //eliminar del array
+      const index = newProperty.mainFeatures.indexOf(value);
+      newProperty.mainFeatures.splice(index, 1);
+    });
   }
+});
+
+//Añadir imagen
+//onUpdateField convierte la imagen en base 64. La imagen = el value del input.
+//añadir el value que te devuelve el método a tu array
+onUpdateField('images', (event) => {
+  const value = event.target.value;
+  newProperty = {
+    ...newProperty,
+    images: value,
+  };
+
+  formValidation.validateField('images', newProperty.images).then((result) => {
+    onSetError('images', result);
+  });
+});
+
+onAddFile('add-image', (img) => {
+  onAddImage(img);
+  newProperty = {
+    ...newProperty,
+    images: [...newProperty.images, img],
+  };
 });
 
 //Botón de guardar
 onSubmitForm('save-button', () => {
   formValidation.validateForm(newProperty).then((result) => {
     onSetFormErrors(result);
+    console.log(result);
+
+    const apiNewProperty = mapNewPropertyFromViewModelToApi(newProperty);
+
+    if (result.succeeded) {
+      insertProperty(apiNewProperty).then((response) => {
+        alert('Su petición se ha realizado con éxito');
+      });
+    } else {
+      alert('Su petición no se ha podido completar con éxito');
+    }
   });
-
-  const apiNewProperty = mapNewPropertyFromViewModelToApi(newProperty);
-
-  if (result.succeeded) {
-    insertProperty(apiNewProperty).then((response) => {
-      alert('Su petición se ha realizado con éxito');
-    });
-  } else {
-    alert('Su petición no se ha podido completar con éxito');
-  }
 });
