@@ -26,9 +26,11 @@ let property = {
   bathrooms: '',
   price: '',
   notes: '',
-  mainFeatures: '',
-  equipments: '',
+  mainFeatures: [],
+  equipmentIds: [],
+  saleTypeIds: [],
   locationUrl: '',
+  provinceId: '',
 };
 
 Promise.all([getPropertyDetail(params.id), getEquipments()]).then(
