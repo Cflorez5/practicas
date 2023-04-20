@@ -40,7 +40,7 @@ let newProperty = {
   bathrooms: '',
   locationUrl: '',
   mainFeatures: [],
-  equipments: [],
+  equiptmentIds: [],
   images: [],
 };
 
@@ -76,13 +76,13 @@ const setEventsCheckbox = (checkboxList) => {
 const addElementEquipments = (value) => {
   newProperty = {
     ...newProperty,
-    equipments: [...newProperty.equipments, value],
+    equipmentsIds: [...newProperty.equipmentsIds, value],
   };
 };
 
 const removeElementEquipments = (value) => {
-  const index = newProperty.equipments.indexOf(value);
-  newProperty.equipments.splice(index, 1);
+  const index = newProperty.equipmentsIds.indexOf(value);
+  newProperty.equipmentsIds.splice(index, 1);
 };
 
 const setEventsEquipments = (equipmentsList) => {
@@ -291,18 +291,6 @@ onSubmitForm('insert-feature-button', () => {
 //Añadir imagen
 //onUpdateField convierte la imagen en base 64. La imagen = el value del input.
 //añadir el value que te devuelve el método a tu array
-onUpdateField('images', (event) => {
-  const value = event.target.value;
-  newProperty = {
-    ...newProperty,
-    images: value,
-  };
-
-  formValidation.validateField('images', newProperty.images).then((result) => {
-    onSetError('images', result);
-  });
-});
-
 onAddFile('add-image', (img) => {
   onAddImage(img);
   newProperty = {
