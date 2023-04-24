@@ -40,7 +40,7 @@ let newProperty = {
   bathrooms: '',
   locationUrl: '',
   mainFeatures: [],
-  equipmentids: [],
+  equipmentIds: [],
   images: [],
 };
 
@@ -76,13 +76,13 @@ const setEventsCheckbox = (checkboxList) => {
 const addElementEquipments = (value) => {
   newProperty = {
     ...newProperty,
-    equipmentids: [...newProperty.equipmentids, value],
+    equipmentIds: [...newProperty.equipmentIds, value],
   };
 };
 
 const removeElementEquipments = (value) => {
-  const index = newProperty.equipmentids.indexOf(value);
-  newProperty.equipmentids.splice(index, 1);
+  const index = newProperty.equipmentIds.indexOf(value);
+  newProperty.equipmentIds.splice(index, 1);
 };
 
 const setEventsEquipments = (equipmentsList) => {
